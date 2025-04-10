@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
+import {ListAlbum} from '../src/components/ListAlbum'
+import {DetailAlbum} from '../src/components/DetailAlbum'
 
-function App() {
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className='container mt-4'>
+      <h1 style={{color:'white'}}>Beyoncé</h1>
+      <Routes>
+        <Route 
+        path='/'
+        element={<ListAlbum  selectalbum={(albumid)=>window.location.href = `/album/${albumid}`}/>}
+        />
+        <Route path='/album/:albumId' element={<DetailAlbum/>}/>
+      </Routes>
     </div>
-  );
+    </Router>
+  )
 }
 
-export default App;
+export default App
