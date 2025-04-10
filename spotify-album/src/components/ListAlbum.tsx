@@ -78,8 +78,78 @@ export const ListAlbum :React.FC<{selectalbum: (idalbum:string)=>void}> = ({sele
     )
     
     const totalpages = Math.ceil(filteredalbums.length / itemsperpage);
-    
+
   return (
-    <div>ListAlbum</div>
+    <div className='albums-list-container'>
+        <div className='filters'>
+            <input 
+            type='text'
+            className='search-input'
+            placeholder='search albums...'
+            value={search}
+            onChange={(e)=>setsearch(e.target.value)}
+            />
+            <select className='year-filter'
+            value={yearfilter}
+            onChange={(e)=>setyearfilter(e.target.value)}
+            >
+                <option value="">All Years</option>
+                {years.map((year)=>(
+                    <option key={year} value={year}>
+                        {year}
+                    </option>
+                ))}
+            </select>
+        </div>
+        <div className='albums-table-wrapper'>
+            <table className='albums-table'>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>cover</th>
+                        <th>name</th>
+                        <th>release date</th>
+                        <th>tracks</th>
+                        <th>type</th>
+                        <th>popularity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {paginatedAlbums.map((albums,index)=>(
+                        <tr 
+                        key={albums.id}
+                        className='album-row'
+                        onClick={()=>selectalbum(albums.id)}
+                        >
+                            <td className='album-number'>{(page-1) * itemsperpage+index+1}</td>
+                            <td>
+                                <img 
+                                src={albums.images[2]?.url || 'placeholder.jpg'}
+                                alt={albums.name}
+                                className='album-cover'
+                                />
+                            </td>
+                            <td className='album-name'>{albums.name}</td>
+                            <td>{albums.release_date}</td>
+                            <td>{albums.total_tracks}</td>
+                            <td>{albums.album_type.charAt(0).toUpperCase() + albums.album_type.slice(1)}</td>
+                            <td>{albums.popularity ?? 'N/A'}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+        <div className='pagination'>
+            {Array.from({length:totalpages},(_,i)=>(
+                <button 
+                key={i}
+                className={`pagination-button ${page === i + 1 ? 'active':''}`}
+                onClick={()=>setpage(i+1)}
+                >
+                    {i+1}
+                </button>
+            ))}
+        </div>
+    </div>
   )
 }
