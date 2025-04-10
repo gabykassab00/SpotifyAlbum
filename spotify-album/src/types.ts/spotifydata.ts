@@ -16,3 +16,16 @@ export interface TrackSpotify{
     popularity?:number;
     preview_url?:string;
 }
+
+export interface AlbumDetailsSpotify extends AlbumSpotify {
+    tracks:{
+        items:TrackSpotify[];
+    };
+}
+
+export interface ApiResponseSpotify<T>{
+    items:T[];
+    total :number;
+    limit:number;
+    offset:number;
+}
