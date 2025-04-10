@@ -1,0 +1,131 @@
+html,body{
+    background-color: #121212;
+    font-family: 'Helvetica Neue',Arial, Helvetica, sans-serif;
+}
+
+#root {
+    background-color: #121212;
+    min-height: 100vh;
+}
+
+.album-details{
+padding: 20px;
+min-height: 100vh;
+}
+
+.back-button{
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover{
+    background-color: #1aa34a;
+}
+
+.album-card {
+    background: linear-gradient(135deg,#282828,#1c1c1c);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+}
+
+.album-card:hover {
+    transform: scale(1.02);
+}
+
+.album-info {
+    display: flex;
+    align-items: center;
+}
+
+.album-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    margin-right: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.album-description {
+    flex: 1;
+}
+
+.album-title {
+    font-size:24px;
+    margin: 0;
+    color: #1db954;
+}
+
+.album-description p {
+    margin: 5px 0;
+    color: #e0e0e0;
+}
+
+.album-description strong {
+    color:#1db954;
+}
+
+.album-release-date {
+    margin : 5px 0 ;
+    color: #b3b3b3b3;
+}
+
+.tracks-title {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ffff;
+}
+
+.tracks-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tracks-table th, .tracks-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+    color: #ffffff;
+}
+
+.tracks-table th {
+    background-color: #1c1c1c;
+}
+
+.play-button {
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.play-button:hover {
+    background-color: #1aa34a;
+}
+
+.no-preview-button{
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: not-allowed;
+}
+
+.loading, .error, .info {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+}
+

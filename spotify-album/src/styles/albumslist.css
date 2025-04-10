@@ -1,0 +1,184 @@
+.albums-list-container {
+    background-color: #121212;
+    color: #FFFFFF;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .artist-name {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .search-input,
+  .year-filter {
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    border: 1px solid #1DB954;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-input:focus,
+  .year-filter:focus {
+    outline: none;
+    border-color: #1DB954;
+  }
+  
+  .search-input::placeholder {
+    color: #B3B3B3;
+  }
+  
+  .year-filter {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%231DB954" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+  }
+
+  .albums-table-wrapper {
+    background-color: #1F1F1F;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .albums-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #FFFFFF;
+  }
+  
+  .albums-table th,
+  .albums-table td {
+    padding: 10px 15px;
+    text-align: left;
+  }
+  
+  .albums-table th {
+    background-color: #2D2D2D;
+    color: #1DB954;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px solid #282828;
+  }
+  
+  .album-row {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .album-row:hover {
+    background-color: #282828;
+  }
+  
+  .album-number {
+    width: 40px;
+    color: #B3B3B3;
+  }
+  
+  .album-cover {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .album-name {
+    font-size: 1rem;
+    color: #FFFFFF;
+    font-weight: 500;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .pagination-button {
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    border: 1px solid #1DB954;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .pagination-button:hover {
+    background-color: #1DB954;
+    color: #121212;
+  }
+  
+  .pagination-button.active {
+    background-color: #1DB954;
+    color: #121212;
+    font-weight: 700;
+  }
+  
+  .loading,
+  .error,
+  .no-albums {
+    text-align: center;
+    padding: 20px;
+    color: #FFFFFF;
+    background-color: #1F1F1F;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  @media (max-width: 768px) {
+    .albums-list-container {
+      padding: 10px;
+    }
+  
+    .artist-name {
+      font-size: 2rem;
+    }
+  
+    .filters {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .search-input,
+    .year-filter {
+      width: 100%;
+      font-size: 0.8rem;
+    }
+  
+    .albums-table th,
+    .albums-table td {
+      padding: 8px 10px;
+      font-size: 0.9rem;
+    }
+  
+    .album-cover {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .pagination-button {
+      width: 32px;
+      height: 32px;
+      font-size: 0.8rem;
+    }
+  }
