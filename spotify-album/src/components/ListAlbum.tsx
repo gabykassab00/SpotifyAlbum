@@ -51,6 +51,33 @@ export const ListAlbum :React.FC<{selectalbum: (idalbum:string)=>void}> = ({sele
         }
         fetchalbumswithpopularity();
     },[]);
+
+    useEffect(()=>{
+        let filtered = albums;
+
+        if(search){
+            filtered = filtered.filter((album)=>
+            album.name.toLowerCase().includes(search.toLowerCase()))
+        }
+        if(yearfilter){
+            filtered = filtered.filter((album)=>(
+                album.release_date.startsWith(yearfilter)
+            ))
+        }
+        setfilteredalbums(filtered);
+        setpage(1);
+    },[search,yearfilter,albums]);
+
+    const years = Array.from(
+        new Set(albums.map((album)=>album.release_date.split('-')[0]))
+    ).sort();
+
+    const paginatedAlbums = filteredalbums.slice(
+        (page-1) * itemsperpage,
+        page * itemsperpage
+    )
+    
+    const totalpages = Math.ceil(filteredalbums.length / itemsperpage);
     
   return (
     <div>ListAlbum</div>
