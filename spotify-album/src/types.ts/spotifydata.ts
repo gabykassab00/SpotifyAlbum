@@ -7,3 +7,12 @@ export interface AlbumSpotify{
     popularity?:number;
     images:{url:string;height:number;width:number}[];
 }
+
+export interface TrackSpotify{
+    id:string;
+    name:string;
+    track_number:number;
+    duration_ms:number;
+    popularity?:number;
+    preview_url?:string;
+}
