@@ -1,5 +1,7 @@
 import axios from 'axios';
 import {AlbumSpotify,AlbumDetailsSpotify} from '../types.ts/spotifydata';
+import { error } from 'console';
+import { off } from 'process';
 
 const API_BASE_SPOTIFY = process.env.APP_API_BASE;
 const TOKEN_REFRESH_URL = process.env.APP_TOKEN_REFRESH;
@@ -33,3 +35,27 @@ const refreshAccessToken = async (): Promise<string> => {
     }
 };
 
+export const getalbumofartist = async (
+    offest : number = 0 ,
+    limit : number = 15 
+):Promise<AlbumSpotify[]> =>{
+    try {
+        const response = await Apispotify.get(`/artists/${ID_ARTIST}/albums`,{
+            params:{offest,limit,include_groups:'album,single'},
+        });
+        return response.data.items;
+    }catch(error){
+        console.error('fetching error for albums',error);
+        throw error;
+    }
+}
+
+export const getdetailofalbum = async (idalbum:string): Promise<AlbumDetailsSpotify> =>{
+    try {
+        const response = await Apispotify.get(`/albums/${idalbum}`);
+        return response.data;
+    }catch(error){
+        console.error('error fetching the detail of the album',error);
+        throw error;
+    }
+}
