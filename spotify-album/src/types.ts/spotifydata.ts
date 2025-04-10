@@ -17,7 +17,7 @@ export interface SpotifyAlbum {
     preview_url?: string;
   }
   
-  export interface SpotifyAlbumDetails extends SpotifyAlbum {
+    export interface SpotifyAlbumDetails extends SpotifyAlbum {
     tracks: {
       items: SpotifyTrack[];
     };
